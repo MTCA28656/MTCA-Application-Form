@@ -3,7 +3,9 @@
 <head>
 <link rel="stylesheet" type="text/css" href="css1.css">
 <link rel="stylesheet" type="text/css" href="validation.css">
-<script src=validation.js></script>
+<script src=validation.js>
+
+</script>
 <style>
 input[type=text], input[type=number] {
     width: 100%;
@@ -25,7 +27,16 @@ label.validation-error{
 color:red;
 
 }
+button{
+font-size:20px;
+width:100px;
+margin:10px;	 
+padding:10px;
+background:rgb(100,100,100);
+color:white;
+}
 </style>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body >
@@ -66,25 +77,17 @@ color:red;
 		
 		
 		<p id="note">note: * indicates mandatory fields</p>
-		<form name="myform" action="adduser.jsp" method="post" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+		<form name="myform" action="education-details.jsp" method="post" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
 			
-			
-			<table class="table2" >
-			
-			
-			
-			
-			
-			<br>
-				<tr>
+		
+			<table class="table2" id="group" >
+			<tr>
 					<td>
 						<h4>
 							Collge Roll No:<sup style="color:red">* </sup><br>(Office Use only):
 						</h4>
 					</td>
-
-					
-						<td><input type="text" name="rollno" maxlength="7" 
+							<td><input type="text" name="rollno" maxlength="7" 
 							style="font-size: 16px;  width: 30%; padding: 10px; display: block;  width: 30%; padding: 12px 20px; border: 2px solid black;"
 							onkeypress='return event.charCode >= 48 && event.charCode <= 57' onblur="requiredField(this)" required></input>
 	
@@ -109,7 +112,7 @@ color:red;
 								
 								<input type="text" name="stuname" id="stuname" maxlength="30" 
 									title="Only Letters" onkeydown="return alphaOnly(event);"
-									onblur="requiredField(this)|| hasSpecialChar(this)"
+									onblur="requiredField(this)|| hasSpecialChar(this)" onkeyup="if(this.textLength!=0){subnewtopic.disabled=false} else{subnewtopic.disabled=true}"
 								  
 									style="text-transform: uppercase;font-size: 16px;
 border-right:none;
@@ -133,7 +136,8 @@ border-bottom:2px solid black;
 						<h4>2.Gender<sup style="color:red">* </sup></h4>
 					</td>
 
-					<td>:<input type="Radio" id="male" name="gender" value="Male">
+					<td onkeyup="if(this.textLength!=0){subnewtopic.disabled=false} else{subnewtopic.disabled=true}">:
+					<input type="Radio" id="male" name="gender" value="Male">
 						Male <input type="Radio" id="Female" name="gender" value="Female">
 						Female
 					</td>
@@ -154,7 +158,8 @@ border-bottom:2px solid black;
 					<td>
 						<div class="adharnum-1">
 							<input type="text" name="stuaadharno" maxlength="12" 
-								onblur="requiredField(this)" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  required
+								onblur="requiredField(this)" onkeyup="if(this.textLength!=0){subnewtopic.disabled=false} else{subnewtopic.disabled=true}"
+								onkeypress='return event.charCode >= 48 && event.charCode <= 57'  required
 								style="font-size: 16px;
 border-right:none;
 border-left:none;
@@ -187,7 +192,7 @@ border-bottom:2px solid black;
 								<input type="text"  name="mname" id="mname" maxlength="30" 
 									title="Only Letters" 
 									onblur="requiredField(this)|| hasSpecialChar(this)"
-								  
+										onkeyup="if(this.textLength!=0){subnewtopic.disabled=false} else{subnewtopic.disabled=true}"
 									style="font-size: 16px;
 border-right:none;
 border-left:none;
@@ -214,7 +219,10 @@ border-bottom:2px solid black;
 					<input 
 						style="font-size: 16px; border-right: none; border-left: none; border-top: none; border-bottom: 2px solid black;  width: 90%; padding: 10px; display: block;"
 						type="text" name="maadharno" maxlength="12"
-						 onblur="requiredField(this)|| hasSpecialChar(this)" required></input>
+						 onblur="requiredField(this)|| hasSpecialChar(this)"
+							 onkeyup="if(this.textLength!=0){subnewtopic.disabled=false} else{subnewtopic.disabled=true}" 
+						 required>
+						 </input>
 					</td>
 				</tr>
 
@@ -228,8 +236,17 @@ border-bottom:2px solid black;
 				<input type="text" name="fathername" id="fname" maxlength="30"
 					title="Only Letters" onkeydown="return alphaOnly(event);"
 					onblur="requiredField(this)||hasSpecialChar(this)"
+					onkeyup="if(this.textLength!=0){subnewtopic.disabled=false} else{subnewtopic.disabled=true}"
 					onfocus="if (this.value == '') {this.value = '';}"
-					style="text-transform: uppercase;"  required/></td>
+					style="font-size: 16px;
+border-right:none;
+border-left:none;
+border-top:none;
+border-bottom:2px solid black;
+ background:lightblue;
+  width: 90%;
+  padding: 10px;
+  display:block; "  required/></td>
 				</tr>
 
 				<tr>
@@ -243,7 +260,9 @@ border-bottom:2px solid black;
 					<td><input 
 						style="font-size: 16px; border-right: none; border-left: none; border-top: none; border-bottom: 2px solid black;  width: 90%; padding: 10px; display: block;"
 						type="text" name="faadharno" maxlength="12"
-						onkeypress='return event.charCode >= 48 && event.charCode <= 57' onblur="requiredField(this)" required></input>
+						onkeypress='return event.charCode >= 48 && event.charCode <= 57' onblur="requiredField(this)" 
+						onkeyup="if(this.textLength!=0){subnewtopic.disabled=false} else{subnewtopic.disabled=true}">
+						</input>
 				</tr>
 
 				<tr>
@@ -257,7 +276,16 @@ border-bottom:2px solid black;
 					<td><input type="text" name="occupation" maxlength="30" 
 						title="Only Letters" onkeydown="return alphaOnly(event);"
 						onblur="requiredField(this)"
-						onfocus="if (this.value == '') {this.value = '';}"  required></td>
+						onkeyup="if(this.textLength!=0){subnewtopic.disabled=false} else{subnewtopic.disabled=true}"
+						onfocus="if (this.value == '') {this.value = '';}" style="font-size: 16px;
+							border-right:none;
+						border-left:none;
+						border-top:none;
+						border-bottom:2px solid black;
+						 background:lightblue;
+						  width: 90%;
+						  padding: 10px;
+						  display:block; "  required></td>
 
 					<td>
 						<h4>Income:<sup style="color:red">* </sup></h4>
@@ -282,7 +310,9 @@ border-bottom:2px solid black;
 							<h4>9. Date of Birth(DD/MM/YYYY) :<sup style="color:red">* </sup></h4>
 						</td>
 
-						<td><input type="date" min="1995-01-01" max="2003-01-01" name="dob"></td>
+						<td><input type="date" min="1995-01-01" max="2003-01-01" name="dob" 
+						onkeyup="if(this.textLength!=0){subnewtopic.disabled=false} else{subnewtopic.disabled=true}">
+						</td>
 
 					</tr>
 				</div>
@@ -314,15 +344,33 @@ border-bottom:2px solid black;
 					<td><input type="text" name="nationality" maxlength="20" required
 					title="Only Letters" onkeydown="return alphaOnly(event);"
 						onblur="requiredField(this)"
-						onfocus="if (this.value == '') {this.value = '';}" ></td>
+						onkeyup="if(this.textLength!=0){subnewtopic.disabled=false} else{subnewtopic.disabled=true}"
+						onfocus="if (this.value == '') {this.value = '';}" style="font-size: 16px;
+							border-right:none;
+						border-left:none;
+						border-top:none;
+						border-bottom:2px solid black;
+						 background:lightblue;
+						  width: 90%;
+						  padding: 10px;
+						  display:block; " ></td>
 						
 						
 						
 					<td><h4 > Religion:<sup style="color:red" >* </sup></h4></td>
-					<td><input style="margin-left:0px;"  type="text" name="religion" maxlength="20" required
+					<td><input style="font-size:16px;
+							border-right:none;
+						border-left:none;
+						border-top:none;
+						border-bottom:2px solid black;
+						 background:lightblue;
+						  width: 90%;
+						  padding: 10px;
+						  display:block;"  type="text" name="religion" maxlength="20" required
 					title="Only Letters" onkeydown="return alphaOnly(event);"
-						onblur="requiredField(this)"
-						onfocus="if (this.value == '') {this.value = '';}" ></td>
+						onblur="requiredField(this)" 
+						onkeyup="if(this.textLength!=0){subnewtopic.disabled=false} else{subnewtopic.disabled=true}"
+						onfocus="if (this.value == '') {this.value = '';}"></td>
 				</tr>
 
 
@@ -332,7 +380,7 @@ border-bottom:2px solid black;
 					<td>
 					<script src="cor.js"></script>
 					
-					<select name="cor" id="subject">
+					<select class="caste" name="cor" id="subject">
 							<option value="" selected="selected">Select Category</option>
 					</select></td>
 					<td>
@@ -350,7 +398,9 @@ border-bottom:2px solid black;
 						<h4>13.Address for communication<sup style="color:red">* </sup></h4>
 					</td>
 					<td><textarea class="txt"  rows="3" cols="30" maxlength="60" name="address"
-							onblur="requiredField(this)" required></textarea>
+							onblur="requiredField(this)"
+							onkeyup="if(this.textLength!=0){subnewtopic.disabled=false} else{subnewtopic.disabled=true}"
+							required></textarea>
 						<hr color="black"></td>
 				</tr>
 
@@ -365,7 +415,17 @@ border-bottom:2px solid black;
 						<div class="num">
 							Mobile 1:<sup style="color:red">* </sup> <input 
 						type="text" name="mobileno1" maxlength="10"
-						onkeypress='return event.charCode >= 48 && event.charCode <= 57' onblur="requiredField(this)" required>
+						onkeypress='return event.charCode >= 48 && event.charCode <= 57' onblur="requiredField(this)"
+							onkeyup="if(this.textLength!=0){subnewtopic.disabled=false} else{subnewtopic.disabled=true}"
+							style="font-size: 16px;
+border-right:none;
+border-left:none;
+border-top:none;
+border-bottom:2px solid black;
+ background:lightblue;
+  width: 90%;
+  padding: 10px;
+  display:block; " required>
 						</div>
 
 					</td>
@@ -374,7 +434,15 @@ border-bottom:2px solid black;
 					<td><div class="num">
 							Mobile 2: <input
 						type="text" name="mobileno2" maxlength="10" placeholder="optional field"
-						onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+						onkeypress='return event.charCode >= 48 && event.charCode <= 57' style="font-size: 16px;
+border-right:none;
+border-left:none;
+border-top:none;
+border-bottom:2px solid black;
+ background:lightblue;
+  width: 90%;
+  padding: 10px;
+  display:block; ">
 						</div></td>
 				</tr>
 				
@@ -388,22 +456,22 @@ border-bottom:2px solid black;
                         <!--Validation Error-->
                         <label class="validation-error hide" id="emailvalidationError">invalid email</label>
                         <!--Email-->
-                        <input type="email" name="userName" id="email" onblur="requiredField(this)||mail_validate()">
+                        <input type="email" name="userName" id="email" onblur="requiredField(this)||mail_validate()"
+                        onkeyup="if(this.textLength!=0){subnewtopic.disabled=false} else{subnewtopic.disabled=true}">
                     </div>
 					</td>
 				</tr>
 
-			</table>
-
+			</table><br>
+			<button type="submit"  name="subnewtopic" id="subnewtopic"disabled="disabled">Next</button>
+			
+</form>
 			
 	</div>
-	<div class="form-action-buttons">
-		<!--Input Button-->
-		<input type="submit" value="Submit"> <a href="viewusers.jsp">View
-			Data</a>
-	</div>
+	
+	
 	
 	<script src="SCRIPT/javaScript2.js" type="text/javascript"></script>
-	</form>
+	
 </body>
 </html>
